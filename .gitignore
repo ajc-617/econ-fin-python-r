@@ -1,4 +1,4 @@
-*.html
+old
 __pycache__/
 .claude
-*.csv
+.vscode

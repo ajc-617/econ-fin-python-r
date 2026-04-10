@@ -1,3 +1,4 @@
+import os
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -30,8 +31,7 @@ def main():
     #TODO store in postgreSQL
 
     csv_string = all_country_info_df.to_csv(index=False)
-    #Keeping Claude key in separate file of course
-    api_key = open("/home/ajchi/personal-projects/python-projects/llm-chats/claude_api_key.txt").read().strip()
+    api_key = os.environ["ANTHROPIC_API_KEY"]
     client = anthropic.Anthropic(api_key=api_key)
     response = client.messages.create(
         model="claude-sonnet-4-6",
